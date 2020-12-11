@@ -1,2 +1,1 @@
-# believeohiozua.github.io
-Rouna's web
+# neteny.github.io
