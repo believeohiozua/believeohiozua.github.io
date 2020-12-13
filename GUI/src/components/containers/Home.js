@@ -11,7 +11,7 @@ export class Home extends Component {
                 <div className="" style={{ position: "relative", top: "55px" }}>
                     <div className="px-3">
                         <p className="h3" data-aos="fade-down" data-aos-delay="50">The Big Dev. Zone</p>
-                        <small className="h6" id="writer" data-aos="zoom-in" data-aos-delay="150"></small>
+                        <em className="h6" id="writer" data-aos="zoom-in" data-aos-delay="150"></em>
                     </div>
                     <svg className="hero-waves"
                         xmlns=""
@@ -30,21 +30,17 @@ export class Home extends Component {
                         <g className="wave3">
                             <use xlinkHref="#wave-path" x="50" y="9" fill="#62c8f8" />
                         </g>
-
                     </svg>
                 </div>
 
-
                 <NavBar />
-
 
                 <section className="section-content py-5">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-6  order-2 order-lg-1">
-                                <div class="section-title" data-aos="fade-up">
+                            <div className="col-md-8  order-2 order-lg-1">
+                                <div class="col-12 text-left section-title py-5" data-aos="fade-up">
                                     <h2>Get Started</h2>
-
                                 </div>
                                 <div>
                                     <div id="" className="faq section-bg">
@@ -76,7 +72,7 @@ export class Home extends Component {
 
                                                 <li data-aos="fade-up" data-aos-delay="400">
                                                     <i className="la la-cog text-success"></i> <a data-toggle="collapse" href="#faq-list-5" className="collapsed">
-                                                        Lets Get Started
+                                                        Lets Get You Started
                                                             <i className="bx bx-chevron-down icon-show"></i><i className="bx bx-chevron-up icon-close"></i></a>
                                                     <div id="faq-list-5" className="collapse" data-parent=".faq-list">
                                                         <div className="text-left">
@@ -95,8 +91,8 @@ export class Home extends Component {
 
                                             </ul>
                                         </div>
-                                        <div className="text-center">
-                                            <Link className="text-white btn btn-default btn-sm rounded-pill">
+                                        <div className="text-center pb-3">
+                                            <Link className="text-white btn btn-primary btn-sm rounded-pill">
                                                 Get Started <i className="la la-angle-right"></i>
                                             </Link>
                                         </div>
@@ -104,9 +100,9 @@ export class Home extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-6  order-1 order-lg-2 mx-auto text-center">
-                                <div>
-                                    <img src="static/img/bizcert.jpg" className="img-fluid" alt="" style={{ width: "60%" }} />
+                            <div className="col-md-4  order-1 order-lg-2 mx-auto text-center">
+                                <div className="pt-lg-5 mt-lg-5">
+                                    <img src="static/img/bizcert.jpg" className="img-fluid" alt="" style={{ width: "75%" }} />
                                 </div>
                             </div>
                         </div>
@@ -115,13 +111,61 @@ export class Home extends Component {
                 <section className="section-content py-5">
                     <div className="container">
                         <div className="row">
-                            <div class="section-title" data-aos="fade-up">
-                                <h2>Products</h2>
-
+                            <div class="col-12 text-left section-title py-5" data-aos="fade-up">
+                                <h2>Business</h2>
                             </div>
+
+                            <div className="col-md-4">
+                                <div className="card border border-warning text-center p-2">
+                                    <Link to="" className="text-dark">Track Project </Link>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="card border border-info text-center p-2">
+                                    <Link to="" className="text-dark"> Join Our Team</Link>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="card border border-success text-center p-2">
+                                    <Link to="" className="text-dark"> Invest In Us</Link>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </section>
+
+                <section className="section-content py-5">
+                    <div className="container">
+                        <div className="row">
+                            <div class="col-12 text-left section-title py-5" data-aos="fade-up">
+                                <h2>Follow Us</h2>
+                            </div>
+
+                            <div className="col-md-4">
+                                <div className="row">
+                                    <div className="col-3">
+                                        <div className="">
+                                            <Link to="" className="text-white"><i className="bg-primary border rounded-circle p-4 la la-facebook text-prmary"></i></Link>
+                                        </div>
+                                    </div>
+                                    <div className="col-3">
+                                        <div className="">
+                                            <Link to="" className="text-white"><i className="bg-info border rounded-circle p-4 la la-twitter text-prmary"></i></Link>
+                                        </div>
+                                    </div>
+                                    <div className="col-3">
+                                        <div className="">
+                                            <Link to="" className="text-primary"><i className="border rounded-circle p-4 la la-linkedin text-prmary"></i></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
             </div>
 
 
