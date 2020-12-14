@@ -7,9 +7,10 @@ export class Home extends Component {
     render() {
         return (
 
-            <div style={{ position: "relative", top: "-55px" }}>
+            <div>
+                <canvas id="stars" style={{ position: "absolute" }}></canvas>
                 <div className="" style={{ position: "relative", top: "55px" }}>
-                    <div className="px-3">
+                    <div className="px-3 text-white">
                         <p className="h3" data-aos="fade-down" data-aos-delay="50">The Big Dev. Zone</p>
                         <em className="h6" id="writer" data-aos="zoom-in" data-aos-delay="150"></em>
                     </div>
@@ -35,11 +36,12 @@ export class Home extends Component {
 
                 <NavBar />
 
-                <section className="section-content py-5">
+                <section className="section-content py-5 hero">
+
                     <div className="container">
                         <div className="row">
                             <div className="col-md-8  order-2 order-lg-1">
-                                <div class="col-12 text-left section-title py-5" data-aos="fade-up">
+                                <div className="col-12 text-left section-title py-5" data-aos="fade-up">
                                     <h2>Get Started</h2>
                                 </div>
                                 <div>
@@ -92,7 +94,7 @@ export class Home extends Component {
                                             </ul>
                                         </div>
                                         <div className="text-center pb-3">
-                                            <Link className="text-white btn btn-primary btn-sm rounded-pill">
+                                            <Link to="" className="text-white btn btn-primary btn-sm rounded-pill">
                                                 Get Started <i className="la la-angle-right"></i>
                                             </Link>
                                         </div>
@@ -100,9 +102,12 @@ export class Home extends Component {
                                     </div>
                                 </div>
                             </div>
+                            {/* <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
+                                <img src="static/img/bizcert.jpg" class="img-fluid animated" alt="" />
+                            </div> */}
                             <div className="col-md-4  order-1 order-lg-2 mx-auto text-center">
-                                <div className="pt-lg-5 mt-lg-5">
-                                    <img src="static/img/bizcert.jpg" className="img-fluid" alt="" style={{ width: "75%" }} />
+                                <div className="pt-lg-5 mt-lg-5 hero-img">
+                                    <img src="static/img/bizcert.jpg" className="img-fluid animated" alt="" style={{ width: "100%" }} />
                                 </div>
                             </div>
                         </div>
@@ -111,7 +116,7 @@ export class Home extends Component {
                 <section className="section-content py-5">
                     <div className="container">
                         <div className="row">
-                            <div class="col-12 text-left section-title py-5" data-aos="fade-up">
+                            <div className="col-12 text-left section-title py-5" data-aos="fade-up">
                                 <h2>Business</h2>
                             </div>
 
@@ -135,29 +140,32 @@ export class Home extends Component {
                     </div>
                 </section>
 
-                <section className="section-content py-5">
+                <section className="section-content py-5 border">
                     <div className="container">
                         <div className="row">
-                            <div class="col-12 text-left section-title py-5" data-aos="fade-up">
+                            <div className="col-12 text-left section-title py-5" data-aos="fade-up">
                                 <h2>Follow Us</h2>
                             </div>
 
-                            <div className="col-md-4">
+                            <div className="col-md-4 border-right">
                                 <div className="row">
                                     <div className="col-3">
                                         <div className="">
                                             <Link to="" className="text-white"><i className="bg-primary border rounded-circle p-4 la la-facebook text-prmary"></i></Link>
                                         </div>
+                                        <p>@ease4life</p>
                                     </div>
                                     <div className="col-3">
                                         <div className="">
                                             <Link to="" className="text-white"><i className="bg-info border rounded-circle p-4 la la-twitter text-prmary"></i></Link>
                                         </div>
+                                        <p>#ease4life</p>
                                     </div>
                                     <div className="col-3">
                                         <div className="">
                                             <Link to="" className="text-primary"><i className="border rounded-circle p-4 la la-linkedin text-prmary"></i></Link>
                                         </div>
+                                        <p>#ease4life</p>
                                     </div>
                                 </div>
                             </div>

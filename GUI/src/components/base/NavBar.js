@@ -5,8 +5,11 @@ export class NavBar extends Component {
     handleScroll = () => {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
             document.getElementById("myNav").style.background = "#2c71fc";
+            document.getElementById("myNav").classList.remove("border");
         } else {
             document.getElementById("myNav").style.background = "";
+            document.getElementById("myNav").classList.add("border");
+
         }
     }
 
@@ -18,7 +21,7 @@ export class NavBar extends Component {
         return (
 
 
-            <nav className="navbar navbar-expand-lg navbar-dark sticky-top" id="myNav">
+            <nav className="navbar navbar-expand-lg navbar-dark sticky-top border" id="myNav">
                 <div className="container">
                     <a className="navbar-brand" href="#">Ease4Life</a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
