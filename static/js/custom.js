@@ -18,7 +18,7 @@ $('.dropdown').hover(function () {
 // Type_writer
 var i = 0;
 var txt = "Only Perfection is Permitted here!";
-var speed = 50;
+var speed = 100;
 function typeWriter() {
   document.getElementById("writer").innerHTML += txt.charAt(i);
   i++;

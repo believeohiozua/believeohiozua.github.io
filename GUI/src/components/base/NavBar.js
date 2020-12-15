@@ -21,7 +21,7 @@ export class NavBar extends Component {
         return (
 
 
-            <nav className="navbar navbar-expand-lg navbar-dark sticky-top border" id="myNav">
+            <nav className="navbar navbar-expand-lg navbar-dark sticky-top border-top border-bottom" id="myNav">
                 <div className="container">
                     <a className="navbar-brand" href="#">Ease4Life</a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">

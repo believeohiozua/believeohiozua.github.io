@@ -13,7 +13,7 @@ export class Urls extends Component {
     render() {
 
         return (
-            <div id="major">
+            <div>
                 <BrowserRouter>
                     <Router>
                         <Switch>

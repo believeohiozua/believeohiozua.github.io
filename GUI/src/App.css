@@ -1,5 +1,5 @@
 html{
- width: 100%;
+width: 100%;
 padding: 0;
 margin: 0;
 overflow-x: hidden;
@@ -11,6 +11,7 @@ overflow-x: hidden;
   html{
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
     overflow-y: scroll;
    }
    .onmob{
@@ -54,9 +55,9 @@ overflow-x: hidden;
 
 
 .navactive:hover {
-  /* padding: 6px; */
+  padding: 5px;
   border-radius: 10px;
-background-color: black;
+background-color: rgba(0, 0, 0, 0.589);
   /* color: green !important; */
   border: solid 1px white;
 }
@@ -75,13 +76,88 @@ background-color: black;
   position: relative;
   top: -10px;
 }
+#homecolaps{
+  background-color: transparent ;
+  color: #fff;
+  border-radius: .5em;
+  border: green solid 2px;
+}
+#homecolaps_sub_sec{
+  background-color: transparent ;
+  color: #fff;
+}
+
+
+
+
+
 /* hOME PAGE COLAPES  */
 
-/* 
-.panel-heading.active a:before {
-  transition: all 0.5s;
-	-webkit-transform: rotate(180deg);
-	-moz-transform: rotate(180deg);
-	transform: rotate(180deg);
-}  */
+/* Basic Rules */
+.switch input { 
+  display:none;
+}
+.switch {
+  display:inline-block;
+  width: 45px;
+  height: 15px;
+  margin: 0px;
+  transform:translateY(50%);
+  position:relative;
+}
+/* Style Wired */
+.slider {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  border-radius:30px;
+  box-shadow:0 0 0 2px #777, 0 0 4px #777;
+  cursor:pointer;
+  border:4px solid transparent;
+  overflow:hidden;
+   transition:.4s;
+}
+.slider:before {
+  position:absolute;
+  content:"";
+  width:100%;
+  height:100%;
+  background:#777;
+  border-radius:30px;
+  transform:translateX(-30px);
+  transition:.4s;
+}
 
+input:checked + .slider:before {
+  transform:translateX(30px);
+  background:limeGreen;
+}
+input:checked + .slider {
+  box-shadow:0 0 0 2px limeGreen,0 0 2px limeGreen;
+}
+
+/* Style Flat */
+.switch.flat .slider {
+box-shadow:none;
+}
+.switch.flat .slider:before {
+background:#FFF;
+}
+.switch.flat input:checked + .slider:before {
+background:white;
+}
+.switch.flat input:checked + .slider {
+background: black;
+}
+
+#stars{
+  /* background: snow !important; */
+}
+
+#resquest{
+  /* background-color: snow; */
+  /* position: absolute; */
+  top: 30px;
+}
