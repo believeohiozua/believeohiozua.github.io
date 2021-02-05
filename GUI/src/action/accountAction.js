@@ -86,6 +86,39 @@ export const authSignup = (firstName, lastName, email, password) => {
     }
 }
 
+export default sendPurchaseData = (
+    names,
+    location,
+    phone_number,
+    email,
+    meter_number,
+    tariff,
+    amount,
+    reference,
+) => {
+    return dispatch => {
+        dispatch(authStart());
+        axios.post('/api/paymentdata/', {
+            names: names,
+            location: location,
+            phone_number: phone_number,
+            email: email,
+            meter_number: meter_number,
+            tariff: tariff,
+            amount: amount,
+            reference: reference,
+
+        })
+            .then(res => {
+                dispatch(createMessage({ authSignup: res }));
+            })
+            .catch(error => {
+                dispatch(authFail(error))
+                dispatch(returnErrors(error.response.data, error.response.status));
+            })
+    }
+}
+
 export const authCheckState = () => {
     return dispatch => {
         const token = localStorage.getItem('token');

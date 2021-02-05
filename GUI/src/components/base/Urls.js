@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter, HashRouter as Router, Switch, Route } from 'react-router-dom';
-import { Helmet } from "react-helmet";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // Containers
 import Home from "../containers/Home";
+import About from "../containers/About";
+import Contact from "../containers/Contact";
+import VoucherForm from "../containers/VoucherForm";
 
 
 export class Urls extends Component {
@@ -18,15 +20,13 @@ export class Urls extends Component {
                     <Router>
                         <Switch>
                             <Route exact path="/" component={Home} />
+                            <Route exact path="/about" component={About} />
+                            <Route exact path="/contact" component={Contact} />
+                            <Route exact path="/voucher" component={VoucherForm} />
                         </Switch>
                     </Router>
                 </BrowserRouter>
 
-                <a href="#" className="back-to-top"><i className="icofont-simple-up"></i></a>
-                <div id="preloader"></div>
-                <Helmet>
-                    <script src="static/js/custom.js" type="text/javascript" />
-                </Helmet>
 
             </div>
         )
