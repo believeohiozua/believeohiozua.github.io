@@ -75,7 +75,7 @@ export class Contact extends Component {
     render() {
         const { full_names, phone_number, email, subject, message } = this.state;
         return (
-            <div className="container py-lg-4">
+            <div className="container">
                 <div className="row">
                     <div className="col">
                         <div className="p-3">

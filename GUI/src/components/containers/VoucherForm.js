@@ -104,7 +104,7 @@ export class VoucherForm extends Component {
         // const Payment = () => <button className="btn btn-outline-primary btn-sm rounded-pill">Pay</button>;
         return (
             <section>
-                <div className="container py-lg-5">
+                <div className="container">
                     <div className="p-3">
                         <Link to="/" className="btn btn-info btn-sm">
                             <i className="la la-angle-left"></i> Home
@@ -223,6 +223,21 @@ export class VoucherForm extends Component {
                                         />
                                     </div>
                                 </div>
+                                {/* <div className="col-md-6 mx-auto mb-3 text-center">
+                                    <label htmlFor="token text-success">
+                                        <small>
+                                            Enter Token (optional)
+                                        </small>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="token"
+                                        placeholder=""
+                                        name="token"
+                                    />
+                                </div> */}
+
                                 <div className="form-group text-center">
                                     <div className="form-check">
                                         <input className="form-check-input" type="checkbox" value="" id="invalidCheck2" required />

@@ -99,7 +99,7 @@ export const sendPurchaseData = (
             meter_number: sendData.meter_number,
             tariff: sendData.tariff,
             amount: sendData.amount,
-            reference: sendData.reference.toString()
+            reference: sendData.reference
         })
             .then(res => {
                 dispatch({

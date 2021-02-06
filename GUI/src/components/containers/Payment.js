@@ -24,7 +24,7 @@ function Payment(props) {
             meter_number: props.paymentdata.meter_number,
             tariff: props.paymentdata.tariff,
             amount: props.paymentdata.amount,
-            reference: reference.toString()
+            reference: JSON.stringify(reference)
         }
         props.senddatafun(sendData),
             console.log("successful");

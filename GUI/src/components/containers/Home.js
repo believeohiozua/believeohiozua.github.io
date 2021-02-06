@@ -19,7 +19,7 @@ export class Home extends Component {
 
         return (
             <Fragment>
-                <div className="container-fluid pt-lg-5 pt-2 border-bottom text-center">
+                <div className="container-fluid pt-lg-5 pt-2 text-center">
                     <div className="jumbotron">
                         <h1 className="h3" id="writer"></h1>
                         <p className="lead">
@@ -28,7 +28,7 @@ export class Home extends Component {
                         </p>
 
                         <div className="row">
-                            <div className="col-lg-6 col-md-12 mx-auto text-center">
+                            <div className="col-lg-8 col-md-12 mx-auto text-center">
                                 <ul className="list-group list-group list-group-horizontal-sm">
                                     <li className="m-1 list-group-item d-flex justify-content-between align-items-center">
                                         Seamlessly &ensp;

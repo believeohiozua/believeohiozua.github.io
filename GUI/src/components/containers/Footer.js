@@ -19,7 +19,7 @@ export class Footer extends Component {
                         <Link to="/about" target="_blank" title="See our Term of use" className="nav-link">Term of use</Link>
                     </div>
                 </div>
-                <p className="text-center pt-5">
+                <p className="text-center">
                     <small>
                         <em>
                             copyright: www.bedcvoucher.com
