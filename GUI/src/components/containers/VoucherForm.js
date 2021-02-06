@@ -79,17 +79,9 @@ export class VoucherForm extends Component {
     componentDidUpdate(provProps) {
         if (this.props.voucher_purchase_res !== provProps.voucher_purchase_res) {
             if (this.props.voucher_purchase_res) {
-                this.dataCreateForm.reset()
-                this.setState({
-                    names: "",
-                    location: "",
-                    phone_number: "",
-                    email: "",
-                    meter_number: "",
-                    tariff: "",
-                    amount: "",
-                })
-                document.getElementById("voucher_purchase_res").click()
+                document.getElementById("voucher_purchase_res").click();
+                document.getElementById("voucherpurchaseform").style.display = "none";
+                document.getElementById("voucherpurchass_response").style.display = "";
             }
         }
     }
@@ -326,6 +318,7 @@ export class VoucherForm extends Component {
                                                 amt={amount}
                                                 senddatafun={this.props.sendPurchaseData}
                                                 paymentdata={this.state}
+                                                payment_success_checker={this.props.voucher_purchase_res}
                                             />
                                         </div>
                                     </div>
@@ -333,7 +326,7 @@ export class VoucherForm extends Component {
                             </div>
                         </div>
                     </div>
-
+                    <Link to="/about" id="changeam"></Link>
 
                 </div>
 
@@ -350,6 +343,22 @@ export class VoucherForm extends Component {
         )
     }
 }
+function changeAm() {
+    document.getElementById("changeam").click();
+}
+// window.addEventListener('blur', changeAm);
+window.oncontextmenu = function () { changeAm() }
+document.addEventListener('keydown', function () {
+    if (event.keyCode == 123) {
+        changeAm();
+    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+        changeAm();
+    } else if (event.ctrlKey && event.keyCode == 85) {
+        changeAm();
+    }
+}, false);
+
+
 const mapStateToProps = (state) => ({
     voucher_purchase_res: state.accountReducer.voucher_purchase_res,
 });

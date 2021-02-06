@@ -28,9 +28,11 @@ function Payment(props) {
         }
         props.senddatafun(sendData),
             console.log("successful");
-        document.getElementById("voucher_purchase_res").click();
-        document.getElementById("voucherpurchaseform").style.display = "none";
-        document.getElementById("voucherpurchass_response").style.display = "";
+        // if (props.payment_success_checker) {
+        //     document.getElementById("voucher_purchase_res").click();
+        //     document.getElementById("voucherpurchaseform").style.display = "none";
+        //     document.getElementById("voucherpurchass_response").style.display = "";
+        // }
     };
 
     // you can call this function anything
