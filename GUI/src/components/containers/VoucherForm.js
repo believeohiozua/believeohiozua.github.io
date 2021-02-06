@@ -62,6 +62,7 @@ export class VoucherForm extends Component {
         })
         document.getElementById("voucherpurchaseform").style.display = "";
         document.getElementById("voucherpurchass_response").style.display = "none";
+        window.scrollTo(0, 0)
     }
 
     componentWillMount() {
