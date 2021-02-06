@@ -9,7 +9,7 @@ export class VoucherForm extends Component {
 
     state = {
         names: "",
-        location: "",
+        address: "",
         phone_number: "",
         email: "",
         meter_number: "",
@@ -38,7 +38,7 @@ export class VoucherForm extends Component {
         }
         if (
             !this.state.names == "" &&
-            !this.state.location == "" &&
+            !this.state.address == "" &&
             !this.state.phone_number == "" &&
             !this.state.email == "" &&
             !this.state.meter_number == "" &&
@@ -53,7 +53,7 @@ export class VoucherForm extends Component {
         this.dataCreateForm.reset()
         this.setState({
             names: "",
-            location: "",
+            address: "",
             phone_number: "",
             email: "",
             meter_number: "",
@@ -88,7 +88,7 @@ export class VoucherForm extends Component {
     }
     render() {
         const { names,
-            location,
+            address,
             phone_number,
             email,
             meter_number,
@@ -119,7 +119,7 @@ export class VoucherForm extends Component {
                                         Thank You!
                                  </span>
                                 </span>
-                                <p className="text-center">
+                                <p className="text-center pt-2">
                                     <Link className="btn btn-outline-success btn-sm rounded-pill" to="" onClick={this.makeAnotherPurchase}>
                                         Make another purchase
                                     </Link>
@@ -142,14 +142,14 @@ export class VoucherForm extends Component {
                                         />
                                     </div>
                                     <div className="col-md-6 mb-3">
-                                        <label htmlFor="location">Location</label>
+                                        <label htmlFor="address">Location (Area)</label>
                                         <input
                                             type="text"
                                             className="form-control"
-                                            id="location"
+                                            id="address"
                                             placeholder=""
-                                            name="location"
-                                            value={location}
+                                            name="address"
+                                            value={address}
                                             required
                                             onChange={this.onChange}
                                         />
@@ -278,7 +278,7 @@ export class VoucherForm extends Component {
                                             </tr>
                                             <tr>
                                                 <td className="font-weight-bold">Location</td>
-                                                <td>{location}</td>
+                                                <td>{address}</td>
                                             </tr>
                                             <tr>
                                                 <td className="font-weight-bold">Phone Number</td>
@@ -348,7 +348,7 @@ function changeAm() {
     document.getElementById("changeam").click();
 }
 // window.addEventListener('blur', changeAm);
-window.oncontextmenu = function () { changeAm() }
+// window.oncontextmenu = function () { changeAm() }-
 document.addEventListener('keydown', function () {
     if (event.keyCode == 123) {
         changeAm();

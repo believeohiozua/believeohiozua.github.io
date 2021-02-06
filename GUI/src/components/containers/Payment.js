@@ -18,7 +18,7 @@ function Payment(props) {
         // Implementation for whatever you want to do with reference and after success call.
         const sendData = {
             names: props.paymentdata.names,
-            location: props.paymentdata.location,
+            location: props.paymentdata.address,
             phone_number: props.paymentdata.phone_number,
             email: props.paymentdata.email,
             meter_number: props.paymentdata.meter_number,
