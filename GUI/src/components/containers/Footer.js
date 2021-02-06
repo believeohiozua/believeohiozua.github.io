@@ -20,8 +20,12 @@ export class Footer extends Component {
                     </div>
                 </div>
                 <p className="text-center pt-5">
-                    copyright: www.bedcvoucher.com
-           </p>
+                    <small>
+                        <em>
+                            copyright: www.bedcvoucher.com
+                       </em>
+                    </small>
+                </p>
             </footer>
         )
     }

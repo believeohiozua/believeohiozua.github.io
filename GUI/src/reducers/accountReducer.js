@@ -4,7 +4,7 @@ const initialState = {
     token: localStorage.getItem('token'),
     is_authenticated: null,
     contact_res: false,
-    voucher_purchase_res: '',
+    voucher_purchase_res: false,
     user: null,
 };
 
@@ -24,7 +24,6 @@ export default function (state = initialState, action) {
             };
         case actionTypes.AUTH_SUCCESS:
             localStorage.setItem('token', action.token);
-            console.log("from reducer ", action.token)
             return {
                 ...state,
                 ...action.payload,

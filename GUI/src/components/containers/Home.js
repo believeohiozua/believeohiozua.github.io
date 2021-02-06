@@ -12,7 +12,9 @@ export class Home extends Component {
         })
 
     }
-
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
     render() {
 
         return (
@@ -20,11 +22,20 @@ export class Home extends Component {
                 <div className="container-fluid pt-lg-5 pt-2 border-bottom text-center">
                     <div className="jumbotron">
                         <h1 className="h3" id="writer"></h1>
-                        <p className="lead"> Our goal is to help you successfully purchase your BEDC voucher :</p>
+                        <p className="lead">
+                            Our goal is to help you successfully purchase
+                            your BEDC voucher from the Comfort of your Home:
+                        </p>
 
                         <div className="row">
-                            <div className="col-lg-5 col-md-9 mx-auto text-center">
+                            <div className="col-lg-6 col-md-12 mx-auto text-center">
                                 <ul className="list-group list-group list-group-horizontal-sm">
+                                    <li className="m-1 list-group-item d-flex justify-content-between align-items-center">
+                                        Seamlessly &ensp;
+                                <span className="badge badge-success badge-pill">
+                                            <i className="la la-check"></i>
+                                        </span>
+                                    </li>
                                     <li className="m-1 list-group-item d-flex justify-content-between align-items-center">
                                         Without Stress  &ensp;
                                 <span className="badge badge-success badge-pill">
@@ -52,7 +63,7 @@ export class Home extends Component {
                         <p>
                             We sell Postpaid, prepaid vouchers online 24/7
                         </p>
-                        <Link className="btn btn-outline-primary btn-sm rounded-pill" to="/voucher" role="button">Recharge Now</Link>
+                        <Link className="btn btn-success btn-sm rounded-pill" to="/voucher" role="button">Recharge Now</Link>
 
 
                     </div>

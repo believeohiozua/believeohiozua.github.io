@@ -4,6 +4,19 @@ import Footer from "./Footer"
 
 
 export class About extends Component {
+
+    componentWillMount() {
+        var loadjs = require('loadjs');
+        loadjs('static/js/private.js', function () {
+            $(document).ready(function () {
+                myTypewriter('aboutus', "Get to know us");
+            });
+        })
+
+    }
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
     render() {
         return (
             <section>
@@ -25,6 +38,9 @@ export class About extends Component {
                         </div>
                     </div>
                     <div className="row border-bottom border-top">
+                        <div className="col-6 mx-auto py-3 text-center">
+                            <h1 id="aboutus" className="h3"></h1>
+                        </div>
                         <div className="col-md-12 py-2">
                             <p className="font-weight-bold">
                                 About us

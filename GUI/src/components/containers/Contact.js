@@ -52,6 +52,18 @@ export class Contact extends Component {
         document.getElementById("contactform").style.display = "";
         document.getElementById("msg_response").style.display = "none";
     }
+    componentWillMount() {
+        var loadjs = require('loadjs');
+        loadjs('static/js/private.js', function () {
+            $(document).ready(function () {
+                myTypewriter('contactus_write', "Contact us");
+            });
+        })
+
+    }
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
     componentDidUpdate(provProps) {
         if (this.props.contact !== provProps.contact) {
             if (this.props.contact) {
@@ -81,7 +93,10 @@ export class Contact extends Component {
                     </div>
                 </div>
                 <div className="row border-bottom border-top">
-                    <div className="col-md-6 pt-1">
+                    <div className="col-10 mx-auto py-3 text-center">
+                        <h1 id="contactus_write" className="h3"></h1>
+                    </div>
+                    <div className="col-md-6 pt-1 pb-3">
                         <div className="row">
                             <div className="col-md-6">
                                 <p>Phone</p>
@@ -140,7 +155,7 @@ export class Contact extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-6 py-lg-5">
+                    <div className="col-md-6 py-lg-4">
                         <div id="msg_response" className="text-center py-5" style={{ display: "none" }}>
                             <span>
                                 <i className='las la-smile-beam h1 text-primary'> </i>
@@ -158,6 +173,7 @@ export class Contact extends Component {
                             </p>
                         </div>
                         <form onSubmit={this.onSubmit} ref={(el) => this.dataCreateForm = el} id="contactform">
+                            <p>Send a Message</p>
                             <div className="form-group">
                                 <input
                                     type="text"

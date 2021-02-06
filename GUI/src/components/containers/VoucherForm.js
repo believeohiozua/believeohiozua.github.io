@@ -16,7 +16,10 @@ export class VoucherForm extends Component {
         tariff: "",
         amount: "",
     };
-    static propTypes = { sendPurchaseData: PropTypes.func.isRequired, };
+    static propTypes = {
+        sendPurchaseData: PropTypes.func.isRequired,
+        voucher_purchase_res: PropTypes.bool,
+    };
     onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
     onSubmit = (e) => {
@@ -45,7 +48,21 @@ export class VoucherForm extends Component {
             document.getElementById("payment_detail_open").click();
         }
     };
-
+    makeAnotherPurchase = (e) => {
+        e.preventDefault();
+        this.dataCreateForm.reset()
+        this.setState({
+            names: "",
+            location: "",
+            phone_number: "",
+            email: "",
+            meter_number: "",
+            tariff: "",
+            amount: "",
+        })
+        document.getElementById("voucherpurchaseform").style.display = "";
+        document.getElementById("voucherpurchass_response").style.display = "none";
+    }
 
     componentWillMount() {
         var loadjs = require('loadjs');
@@ -56,7 +73,26 @@ export class VoucherForm extends Component {
         })
 
     }
-
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+    componentDidUpdate(provProps) {
+        if (this.props.voucher_purchase_res !== provProps.voucher_purchase_res) {
+            if (this.props.voucher_purchase_res) {
+                this.dataCreateForm.reset()
+                this.setState({
+                    names: "",
+                    location: "",
+                    phone_number: "",
+                    email: "",
+                    meter_number: "",
+                    tariff: "",
+                    amount: "",
+                })
+                document.getElementById("voucher_purchase_res").click()
+            }
+        }
+    }
     render() {
         const { names,
             location,
@@ -77,7 +113,27 @@ export class VoucherForm extends Component {
                     <h1 className="h3 text-center" id="voucherintro"></h1>
                     <div className="row border-top border-bottom py-3">
                         <div className="col-md-6 mx-auto">
-                            <form onSubmit={this.onSubmit} ref={(el) => this.dataCreateForm = el}>
+
+                            <div id="voucherpurchass_response" className="text-center py-5" style={{ display: "none" }}>
+                                <span>
+                                    <i className='las la-smile-beam h1 text-success'> </i>
+                                    <br />
+                                    <i className='icofont-tick-mark text-success h4'></i>
+                                    <br />
+                                    <span className="h5 text-center">
+                                        We are now processing your Voucher <br />
+                                        Please be on the alert within the next 10min <br />
+                                        Thank You!
+                                 </span>
+                                </span>
+                                <p className="text-center">
+                                    <Link className="btn btn-outline-success btn-sm rounded-pill" to="" onClick={this.makeAnotherPurchase}>
+                                        Make another purchase
+                                    </Link>
+                                </p>
+                            </div>
+
+                            <form onSubmit={this.onSubmit} ref={(el) => this.dataCreateForm = el} id="voucherpurchaseform">
                                 <div className="form-row">
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor="username">Names</label>
@@ -88,6 +144,7 @@ export class VoucherForm extends Component {
                                             placeholder=""
                                             required
                                             name="names"
+                                            value={names}
                                             onChange={this.onChange}
                                         />
                                     </div>
@@ -99,6 +156,7 @@ export class VoucherForm extends Component {
                                             id="location"
                                             placeholder=""
                                             name="location"
+                                            value={location}
                                             required
                                             onChange={this.onChange}
                                         />
@@ -112,6 +170,7 @@ export class VoucherForm extends Component {
                                             placeholder=""
                                             required
                                             name="phone_number"
+                                            value={phone_number}
                                             onChange={this.onChange}
                                         />
                                     </div>
@@ -124,6 +183,7 @@ export class VoucherForm extends Component {
                                             placeholder=""
                                             required
                                             name="email"
+                                            value={email}
                                             onChange={this.onChange}
                                         />
                                     </div>
@@ -137,6 +197,7 @@ export class VoucherForm extends Component {
                                             id="meter_number"
                                             required
                                             name="meter_number"
+                                            value={meter_number}
                                             onChange={this.onChange}
                                         />
                                     </div>
@@ -156,6 +217,8 @@ export class VoucherForm extends Component {
                                             id="validationDefault05"
                                             required
                                             name="amount"
+                                            min="1500"
+                                            value={amount}
                                             onChange={this.onChange}
                                         />
                                     </div>
@@ -188,7 +251,7 @@ export class VoucherForm extends Component {
                             <div className="modal-content">
                                 <div className="modal-header">
                                     <h5 className="modal-title" id="payment_detailLabel">Transaction Information</h5>
-                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <button id="voucher_purchase_res" type="button" className="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -272,7 +335,9 @@ export class VoucherForm extends Component {
         )
     }
 }
+const mapStateToProps = (state) => ({
+    voucher_purchase_res: state.accountReducer.voucher_purchase_res,
+});
 
-
-export default connect(null, { sendPurchaseData })(VoucherForm);
+export default connect(mapStateToProps, { sendPurchaseData })(VoucherForm);
 

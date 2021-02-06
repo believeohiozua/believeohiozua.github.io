@@ -24,10 +24,13 @@ function Payment(props) {
             meter_number: props.paymentdata.meter_number,
             tariff: props.paymentdata.tariff,
             amount: props.paymentdata.amount,
-            reference: reference
+            reference: reference.toString()
         }
         props.senddatafun(sendData),
             console.log("successful");
+        document.getElementById("voucher_purchase_res").click();
+        document.getElementById("voucherpurchaseform").style.display = "none";
+        document.getElementById("voucherpurchass_response").style.display = "";
     };
 
     // you can call this function anything

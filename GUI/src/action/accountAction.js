@@ -88,23 +88,27 @@ export const authSignup = (firstName, lastName, email, password) => {
 
 export const sendPurchaseData = (
     sendData
+
 ) => {
     return dispatch => {
-
-        dispatch(authStart());
         axios.post('/api/paymentdata/', {
-            sendData
-
+            names: sendData.names,
+            location: sendData.location,
+            phone_number: sendData.phone_number,
+            email: sendData.email,
+            meter_number: sendData.meter_number,
+            tariff: sendData.tariff,
+            amount: sendData.amount,
+            reference: sendData.reference.toString()
         })
             .then(res => {
-                dispatch(createMessage({ authSignup: res }));
                 dispatch({
                     type: actionTypes.VOUCHER_PURCHASE_SUCCESSFUL,
-                    payload: res.data,
+                    payload: res.data.paymentdata,
                 });
+                dispatch(createMessage({ generalSuccessMessage: 'Tanscaction In progress' }));
             })
             .catch(error => {
-                dispatch(authFail(error))
                 dispatch(returnErrors(error.response.data, error.response.status));
             })
     }
@@ -126,7 +130,7 @@ export const postContact = (
             message: message,
         })
             .then(res => {
-                dispatch(createMessage({ generalSuccessMessage: 'Thanks Message Sent!' }));
+                dispatch(createMessage({ generalSuccessMessage: 'Message sent! Thank you ' }));
                 dispatch({
                     type: actionTypes.CONTACT_SENT,
                     payload: res.data.contact,
