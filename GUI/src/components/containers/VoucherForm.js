@@ -142,7 +142,7 @@ export class VoucherForm extends Component {
                                         />
                                     </div>
                                     <div className="col-md-6 mb-3">
-                                        <label htmlFor="address">Location (Area)</label>
+                                        <label htmlFor="address">Address</label>
                                         <input
                                             type="text"
                                             className="form-control"
