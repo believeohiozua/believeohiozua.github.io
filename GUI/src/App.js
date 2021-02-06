@@ -12,7 +12,7 @@ import './App.css';
 // Alert Options
 const alertOptions = {
     timeout: 4000,
-    position: 'bottom center',
+    position: 'top center',
 };
 
 

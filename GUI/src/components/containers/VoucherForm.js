@@ -32,7 +32,6 @@ export class VoucherForm extends Component {
         if (get_tarrif.value) {
             this.state.tariff = get_tarrif.value
             this.setState({ tariff: get_tarrif.value });
-            console.log(get_tarrif.value)
         }
         if (
             !this.state.names == "" &&
@@ -66,7 +65,7 @@ export class VoucherForm extends Component {
             meter_number,
             tariff,
             amount } = this.state;
-        const Payment = () => <button className="btn btn-outline-primary btn-sm rounded-pill">Pay</button>;
+        // const Payment = () => <button className="btn btn-outline-primary btn-sm rounded-pill">Pay</button>;
         return (
             <section>
                 <div className="container py-lg-5">

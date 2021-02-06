@@ -17,7 +17,7 @@ export class Home extends Component {
 
         return (
             <Fragment>
-                <div className="container-fluid py-lg-5 pt-2 border-bottom text-center">
+                <div className="container-fluid pt-lg-5 pt-2 border-bottom text-center">
                     <div className="jumbotron">
                         <h1 className="h3" id="writer"></h1>
                         <p className="lead"> Our goal is to help you successfully purchase your BEDC voucher :</p>

@@ -33,7 +33,7 @@ export class About extends Component {
                         </div>
                         <div className="col-md-12 py-2">
                             <p className="font-weight-bold">
-                                Privacy policy
+                                How it works
                             </p>
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi itaque quisquam, recusandae tempora quo sint! Alias, in assumenda molestias numquam ullam adipisci, ipsa nobis sit culpa dicta officia blanditiis neque.
                         </div>

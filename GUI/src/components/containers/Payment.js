@@ -16,19 +16,18 @@ function Payment(props) {
     // you can call this function anything
     const handlePaystackSuccessAction = (reference) => {
         // Implementation for whatever you want to do with reference and after success call.
-        props.senddatafun(
-            {
-                names: props.paymentdata.names,
-                location: props.paymentdata.location,
-                phone_number: props.paymentdata.phone_number,
-                email: props.paymentdata.email,
-                meter_number: props.paymentdata.meter_number,
-                tariff: props.paymentdata.tariff,
-                amount: props.paymentdata.amount,
-                reference: reference
-            }
-        ),
-            console.log(reference);
+        const sendData = {
+            names: props.paymentdata.names,
+            location: props.paymentdata.location,
+            phone_number: props.paymentdata.phone_number,
+            email: props.paymentdata.email,
+            meter_number: props.paymentdata.meter_number,
+            tariff: props.paymentdata.tariff,
+            amount: props.paymentdata.amount,
+            reference: reference
+        }
+        props.senddatafun(sendData),
+            console.log("successful");
     };
 
     // you can call this function anything

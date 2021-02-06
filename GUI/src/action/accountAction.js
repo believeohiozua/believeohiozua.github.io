@@ -41,7 +41,7 @@ export const checkAuthTimeout = expirationTime => {
 export const authLogin = (email, password) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post('https://coinlynk.herokuapp.com/api/v1/auth/login/', {
+        axios.post('/', {
             username: email,
             password: password
         })
@@ -64,7 +64,7 @@ export const authLogin = (email, password) => {
 export const authSignup = (firstName, lastName, email, password) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post('https://coinlynk.herokuapp.com/api/v1/auth/register/', {
+        axios.post('/', {
             firstName: firstName,
             lastName: lastName,
             email: email,
@@ -87,30 +87,21 @@ export const authSignup = (firstName, lastName, email, password) => {
 }
 
 export const sendPurchaseData = (
-    names,
-    location,
-    phone_number,
-    email,
-    meter_number,
-    tariff,
-    amount,
-    reference,
+    sendData
 ) => {
     return dispatch => {
+
         dispatch(authStart());
         axios.post('/api/paymentdata/', {
-            names: names,
-            location: location,
-            phone_number: phone_number,
-            email: email,
-            meter_number: meter_number,
-            tariff: tariff,
-            amount: amount,
-            reference: reference,
+            sendData
 
         })
             .then(res => {
                 dispatch(createMessage({ authSignup: res }));
+                dispatch({
+                    type: actionTypes.VOUCHER_PURCHASE_SUCCESSFUL,
+                    payload: res.data,
+                });
             })
             .catch(error => {
                 dispatch(authFail(error))
@@ -127,7 +118,7 @@ export const postContact = (
 
 ) => {
     return dispatch => {
-        axios.post('/api/contactus/', {
+        axios.post('/api/contact_us/', {
             full_names: full_names,
             email: email,
             phone_number: phone_number,

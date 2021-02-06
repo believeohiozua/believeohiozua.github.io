@@ -14,7 +14,10 @@ export class Contact extends Component {
         subject: '',
         message: '',
     };
-    static propTypes = { postContact: PropTypes.func.isRequired, };
+    static propTypes = {
+        postContact: PropTypes.func.isRequired,
+        contact: PropTypes.bool,
+    };
 
     onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
@@ -47,7 +50,15 @@ export class Contact extends Component {
             message: '',
         })
         document.getElementById("contactform").style.display = "";
-        document.getElementById("ssmsg").style.display = "none";
+        document.getElementById("msg_response").style.display = "none";
+    }
+    componentDidUpdate(provProps) {
+        if (this.props.contact !== provProps.contact) {
+            if (this.props.contact) {
+                document.getElementById("contactform").style.display = "none";
+                document.getElementById("msg_response").style.display = "";
+            }
+        }
     }
     render() {
         const { full_names, phone_number, email, subject, message } = this.state;
@@ -130,8 +141,23 @@ export class Contact extends Component {
                         </div>
                     </div>
                     <div className="col-md-6 py-lg-5">
-
-                        <form>
+                        <div id="msg_response" className="text-center py-5" style={{ display: "none" }}>
+                            <span>
+                                <i className='las la-smile-beam h1 text-primary'> </i>
+                                <br />
+                                <i className='icofont-tick-mark text-primary h4'></i>
+                                <br />
+                                <strong className="h5 text-center text-primary">
+                                    Message sent!
+                                 </strong>
+                            </span>
+                            <p className="text-center">
+                                <Link className="btn btn-outline-primary btn-sm rounded-pill" to="" onClick={this.sendAnotherMessage}>
+                                    Send Another Message
+                                    </Link>
+                            </p>
+                        </div>
+                        <form onSubmit={this.onSubmit} ref={(el) => this.dataCreateForm = el} id="contactform">
                             <div className="form-group">
                                 <input
                                     type="text"
@@ -141,6 +167,7 @@ export class Contact extends Component {
                                     name="full_names"
                                     value={full_names}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div className="form-row mb-2">
@@ -152,16 +179,18 @@ export class Contact extends Component {
                                         name="phone_number"
                                         value={phone_number}
                                         onChange={this.onChange}
+                                        required
                                     />
                                 </div>
                                 <div className="col">
                                     <input
                                         type="email"
-                                        lassName="form-control"
+                                        className="form-control"
                                         placeholder="email"
                                         name="email"
                                         value={email}
                                         onChange={this.onChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -174,6 +203,7 @@ export class Contact extends Component {
                                     name="subject"
                                     value={subject}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -185,6 +215,7 @@ export class Contact extends Component {
                                     name="message"
                                     value={message}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div className="mx-auto text-center">
@@ -201,10 +232,10 @@ export class Contact extends Component {
         )
     }
 }
-// const mapStateToProps = (state) => ({
-//     contact: state.mainReducer.contact,
-// });
+const mapStateToProps = (state) => ({
+    contact: state.accountReducer.contact_res,
+});
 
+export default connect(mapStateToProps, { postContact })(Contact);
 
-export default connect(null, { postContact })(Contact);
 
