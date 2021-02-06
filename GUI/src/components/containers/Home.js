@@ -61,7 +61,7 @@ export class Home extends Component {
 
                         <hr className="my-4" />
                         <p>
-                            We sell Postpaid, prepaid vouchers online 24/7
+                            We sell Postpaid, Prepaid Vouchers Online 24/7
                         </p>
                         <Link className="btn btn-success btn-sm rounded-pill" to="/voucher" role="button">Recharge Now</Link>
 
