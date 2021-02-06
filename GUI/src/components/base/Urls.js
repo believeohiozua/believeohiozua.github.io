@@ -16,6 +16,9 @@ export class Urls extends Component {
 
         return (
             <div>
+                <div className="loader">
+                    <i className="spinner-grow text-primary h1"></i>
+                </div>
                 <BrowserRouter>
                     <Router>
                         <Switch>
@@ -32,6 +35,10 @@ export class Urls extends Component {
         )
     }
 }
+window.addEventListener('load', function () {
+    const loader = document.querySelector('.loader');
+    loader.className += ' hidden';
+});
 
 export default Urls;
 

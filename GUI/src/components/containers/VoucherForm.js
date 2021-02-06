@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { sendPurchaseData } from "../../action/accountAction";
 import Payment from "./Payment"
 import Footer from "./Footer";
 export class VoucherForm extends Component {
@@ -13,7 +16,7 @@ export class VoucherForm extends Component {
         tariff: "",
         amount: "",
     };
-
+    static propTypes = { sendPurchaseData: PropTypes.func.isRequired, };
     onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
     onSubmit = (e) => {
@@ -63,6 +66,7 @@ export class VoucherForm extends Component {
             meter_number,
             tariff,
             amount } = this.state;
+        const Payment = () => <button className="btn btn-outline-primary btn-sm rounded-pill">Pay</button>;
         return (
             <section>
                 <div className="container py-lg-5">
@@ -240,7 +244,12 @@ export class VoucherForm extends Component {
                                             </button>
                                         </div>
                                         <div className="col text-right">
-                                            <Payment email={email} amt={amount} paymentdata={this.state} />
+                                            <Payment
+                                                email={email}
+                                                amt={amount}
+                                                senddatafun={this.props.sendPurchaseData}
+                                                paymentdata={this.state}
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -265,4 +274,6 @@ export class VoucherForm extends Component {
     }
 }
 
-export default VoucherForm
+
+export default connect(null, { sendPurchaseData })(VoucherForm);
+

@@ -14,17 +14,16 @@ export class Home extends Component {
     }
 
     render() {
-        //  <Link to="/" className="nav-link">About</Link>
 
         return (
             <Fragment>
-                <div className="container-fluid py-lg-5 pt-2 border-bottom">
+                <div className="container-fluid py-lg-5 pt-2 border-bottom text-center">
                     <div className="jumbotron">
                         <h1 className="h3" id="writer"></h1>
                         <p className="lead"> Our goal is to help you successfully purchase your BEDC voucher :</p>
 
                         <div className="row">
-                            <div className="col-md-10">
+                            <div className="col-lg-5 col-md-9 mx-auto text-center">
                                 <ul className="list-group list-group list-group-horizontal-sm">
                                     <li className="m-1 list-group-item d-flex justify-content-between align-items-center">
                                         Without Stress  &ensp;
@@ -53,7 +52,7 @@ export class Home extends Component {
                         <p>
                             We sell Postpaid, prepaid vouchers online 24/7
                         </p>
-                        <Link className="btn btn-outline-primary btn-sm rounded-pill" to="/voucher" role="button">Get Started</Link>
+                        <Link className="btn btn-outline-primary btn-sm rounded-pill" to="/voucher" role="button">Recharge Now</Link>
 
 
                     </div>

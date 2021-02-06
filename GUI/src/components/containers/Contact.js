@@ -1,12 +1,58 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { postContact } from "../../action/accountAction";
 import Footer from "./Footer"
 
 
 export class Contact extends Component {
+    state = {
+        full_names: '',
+        phone_number: '',
+        email: '',
+        subject: '',
+        message: '',
+    };
+    static propTypes = { postContact: PropTypes.func.isRequired, };
+
+    onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
+    onSubmit = (e) => {
+        e.preventDefault();
+        var spin = document.getElementById('contactbtnspinner');
+        var loading = "<i className='spinner-border'></i>" + "&thinsp;" + "Sending...";
+        spin.innerHTML = loading;
+        setTimeout(function () {
+            spin.innerHTML = "Send";
+        }, 20000);
+
+        this.props.postContact(
+            this.state.full_names,
+            this.state.phone_number,
+            this.state.email,
+            this.state.subject,
+            this.state.message,
+        );
+
+    };
+    sendAnotherMessage = (e) => {
+        e.preventDefault();
+        this.dataCreateForm.reset()
+        this.setState({
+            full_names: '',
+            phone_number: '',
+            email: '',
+            subject: '',
+            message: '',
+        })
+        document.getElementById("contactform").style.display = "";
+        document.getElementById("ssmsg").style.display = "none";
+    }
     render() {
+        const { full_names, phone_number, email, subject, message } = this.state;
         return (
-            <div className="container">
+            <div className="container py-lg-4">
                 <div className="row">
                     <div className="col">
                         <div className="p-3">
@@ -85,66 +131,64 @@ export class Contact extends Component {
                     </div>
                     <div className="col-md-6 py-lg-5">
 
-                        {/* <form>
-
-                            <div className="form-outline mb-4 md-form">
-                                <input type="text" id="form4Example1" className="form-control" />
-                                <label className="form-label" for="form4Example1">Name</label>
-                            </div>
-
-
-                            <div className="form-outline mb-4">
-                                <input type="email" id="form4Example2" className="form-control" />
-                                <label className="form-label" for="form4Example2">Email address</label>
-                            </div>
-
-
-                            <div className="form-outline mb-4">
-                                <textarea className="form-control" id="form4Example3" rows="4"></textarea>
-                                <label className="form-label" for="form4Example3">Message</label>
-                            </div>
-
-
-                            <div className="form-check d-flex justify-content-center mb-4">
-                                <input
-                                    className="form-check-input me-2"
-                                    type="checkbox"
-                                    value=""
-                                    id="form4Example4"
-                                    checked
-                                />
-                                <label className="form-check-label" for="form4Example4">
-                                    Send me a copy of this message
-    </label>
-                            </div>
-
-
-                            <button type="submit" className="btn btn-primary btn-block mb-4">Send</button>
-                        </form>
-                        */}
                         <form>
                             <div className="form-group">
-                                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Full Names" />
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="exampleFormControlInput1"
+                                    placeholder="Full Names"
+                                    name="full_names"
+                                    value={full_names}
+                                    onChange={this.onChange}
+                                />
                             </div>
                             <div className="form-row mb-2">
                                 <div className="col">
-                                    <input type="tel" className="form-control" placeholder="Phone Number" />
+                                    <input
+                                        type="tel"
+                                        className="form-control"
+                                        placeholder="Phone Number"
+                                        name="phone_number"
+                                        value={phone_number}
+                                        onChange={this.onChange}
+                                    />
                                 </div>
                                 <div className="col">
-                                    <input type="email" className="form-control" placeholder="email" />
+                                    <input
+                                        type="email"
+                                        lassName="form-control"
+                                        placeholder="email"
+                                        name="email"
+                                        value={email}
+                                        onChange={this.onChange}
+                                    />
                                 </div>
                             </div>
                             <div className="form-group">
-                                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Subject" />
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="exampleFormControlInput1"
+                                    placeholder="Subject"
+                                    name="subject"
+                                    value={subject}
+                                    onChange={this.onChange}
+                                />
                             </div>
                             <div className="form-group">
                                 <textarea
-                                    className="form-control" id="exampleFormControlTextarea1"
+                                    className="form-control"
+                                    id="exampleFormControlTextarea1"
                                     placeholder="your Message"
-                                    rows="5" />
+                                    rows="5"
+                                    name="message"
+                                    value={message}
+                                    onChange={this.onChange}
+                                />
                             </div>
                             <div className="mx-auto text-center">
-                                <button className="btn btn-primary btn-sm rounded">
+                                <button id="contactbtnspinner" className="btn btn-primary btn-sm rounded">
                                     &ensp;Send &ensp;
                                 </button>
                             </div>
@@ -157,5 +201,10 @@ export class Contact extends Component {
         )
     }
 }
+// const mapStateToProps = (state) => ({
+//     contact: state.mainReducer.contact,
+// });
 
-export default Contact
+
+export default connect(null, { postContact })(Contact);
+

@@ -1,7 +1,6 @@
 import React from 'react';
 import { PaystackButton } from 'react-paystack';
-import { connect } from 'react-redux';
-import sendPurchaseData from "../../action/accountAction";
+
 
 
 
@@ -17,7 +16,7 @@ function Payment(props) {
     // you can call this function anything
     const handlePaystackSuccessAction = (reference) => {
         // Implementation for whatever you want to do with reference and after success call.
-        this.props.sendPurchaseData(
+        props.senddatafun(
             {
                 names: props.paymentdata.names,
                 location: props.paymentdata.location,
@@ -57,4 +56,4 @@ function Payment(props) {
 
 
 
-export default connect(null, { sendPurchaseData })(Payment);
+export default Payment;

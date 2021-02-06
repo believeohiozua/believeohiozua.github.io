@@ -86,7 +86,7 @@ export const authSignup = (firstName, lastName, email, password) => {
     }
 }
 
-export default sendPurchaseData = (
+export const sendPurchaseData = (
     names,
     location,
     phone_number,
@@ -118,7 +118,34 @@ export default sendPurchaseData = (
             })
     }
 }
+export const postContact = (
+    full_names,
+    phone_number,
+    email,
+    subject,
+    message,
 
+) => {
+    return dispatch => {
+        axios.post('/api/contactus/', {
+            full_names: full_names,
+            email: email,
+            phone_number: phone_number,
+            subject: subject,
+            message: message,
+        })
+            .then(res => {
+                dispatch(createMessage({ generalSuccessMessage: 'Thanks Message Sent!' }));
+                dispatch({
+                    type: actionTypes.CONTACT_SENT,
+                    payload: res.data.contact,
+                });
+            })
+            .catch(error => {
+                dispatch(returnErrors(error.response.data, error.response.status));
+            })
+    }
+}
 export const authCheckState = () => {
     return dispatch => {
         const token = localStorage.getItem('token');
