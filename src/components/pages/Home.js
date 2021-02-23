@@ -79,7 +79,7 @@ export class Home extends Component {
                             </div>
 
                         </div>
-                        <div className="row" id="lg_to_top">
+                        <div className="row pb-4" id="lg_to_top">
                             <div className="col-lg-4 order-2 order-lg-1">
                                 <div className="row border bg-white py-3 shadow" style={{ borderRadius: "1em" }}>
                                     <div className="col-5 card">
@@ -114,12 +114,19 @@ export class Home extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-10 order-1 order-lg-2 mx-auto bg-white border my-5" style={{ borderRadius: "1em" }}>
-                                <div className="row">
-                                    <div className="col-md-5 py-3 px-4">
-                                        <p className=" text-dark fs-5">
+                            <div className="col-lg-10 order-1 order-lg-2 mx-auto bg-white border my-5 p-4" style={{ borderRadius: "1em" }}>
+                                <div className="row pb-4">
+                                    <div className="col-md-6">
+                                        <span className="text-start text-dark fs-6">
                                             Sign up for Afribaggage
-                                        </p>
+                                        </span>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <span className="text-start fs-6 text-muted">Connect with</span> <Link to="">Google</Link>
+                                    </div>
+                                </div>
+                                <div className="row mx-auto">
+                                    <div className="col-md-5">
                                         <p>
                                             <sub className="">Email address</sub>
                                         </p>
@@ -139,11 +146,9 @@ export class Home extends Component {
                                         </div>
 
                                     </div>
-                                    <div className="col-md-5 py-3 px-5">
+                                    <div className="col-md-5">
                                         <div className="text-dark fs-6">
-                                            <p className="pb-2 fs-5">
-                                                <span className="text-muted">Connect with</span> <Link to="">Google</Link>
-                                            </p>
+
                                             <p>
                                                 <sub className="">What is your phone number?</sub>
                                             </p>
@@ -152,7 +157,8 @@ export class Home extends Component {
                                                 borderRadius: "7px",
                                                 height: "45px",
                                                 outline: "none",
-                                                border: "solid 1px #b5c1ce"
+                                                border: "solid 1px #b5c1ce",
+                                                width: "83%"
                                             }} >
                                                 <div className="input-group row">
                                                     <div className="col-4">
@@ -171,8 +177,8 @@ export class Home extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-md-2 pt-2">
-                                        <div className="text-center pt-5 mt-5">
+                                    <div className="col-md-2">
+                                        <div className="text-center pt-lg-5 pt-3">
                                             <button className="btn btn-lg text-white disabled" style={{ background: 'rgb(128, 128, 128)' }}>SIGN UP</button>
                                         </div>
                                     </div>

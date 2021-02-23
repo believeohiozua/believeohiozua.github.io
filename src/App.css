@@ -73,7 +73,7 @@ text-align: center;
   position: relative;
   top: -5em;
 }
-@media (max-width: 892px) {
+@media (max-width: 992px) {
   #lg_to_top{
     position: static;
     top: 0;

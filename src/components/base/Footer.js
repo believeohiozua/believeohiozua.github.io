@@ -10,7 +10,7 @@ export class Footer extends Component {
 
 
         return (
-            <div className="container-fluid bg-white border-top py-2 px-lg-5 px-2">
+            <div className="container-fluid bg-white border-top py-5 px-lg-5 mb-4">
                 <div className="row">
                     <div className="col-md-3">
                         <div className="row">
