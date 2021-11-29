@@ -19,31 +19,37 @@
 <body>
     <div class="container">
         <div class="row mt-5 pt-5">
-            <div class="col-lg-6 mx-auto" data-aos="fade-up">
-                <div class="card rounded">
+            <div class="card col-lg-6 mx-auto" data-aos="fade-up">
+                <div class="rounded">
                     <div class="card-body">
-                        <form action="./patient_sign_up_form.html" method="post">
-                            <div class="form-group">
-                                <label for="">Available time slot searching…
-                                    <br>
-                                    <em class="small">pick a date and hit the search button</em>
-                                </label>
-                                <input type="date" class="form-control" name="patient_name" id="patient_name"
-                                    placeholder="Available time slot searching…" required>
-                            </div>
-                            <div class="">
-                                <button type="submit" class="btn btn-outline-dark btn-sm rounded">
-                                    Search <i class="fa fa-search" aria-hidden="true"></i>
-
-                                </button>
-                            </div>
-                        </form>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-muted">Patient Name: <span class="text-dark" id="">C.
+                                    Precious</span> </li>
+                            <li class="list-group-item text-muted">Appointment Date & Time: <span class="text-dark"
+                                    id="">12/02/1995</span></li>
+                            <li class="list-group-item text-muted">Doctor: <span class="text-dark" id="">Dr. Believe
+                                    O.</span></li>
+                            <li class="list-group-item text-muted">Location: <span class="text-dark" id="">Glasgo
+                                    London</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-right mb-3">
+                    <div class="">
+                        <a href="data_summary.html" type="button" class="btn btn-outline-info rounded btn-sm">
+                            Confirm Appointment <i class="fa fa-thumbs-up"></i> </a>
+                    </div>
+                    <div class="">
+                        <a href="otp.html" type="button" class="btn btn-outline-danger rounded btn-sm">
+                            Cancel Appointment <i class="fa fa-times"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+
             <div class="mt-lg-0 mt-5 text-right mr-auto col-12">
                 <div class="text-right">
-                    <a href="index.html" class="btn btn-outline-dark btn-sm rounded-pill">
+                    <a href="otp.html" class="btn btn-outline-dark btn-sm rounded-pill">
                         <i class="fa fa-arrow-left"></i> Back</a>
                 </div>
             </div>
