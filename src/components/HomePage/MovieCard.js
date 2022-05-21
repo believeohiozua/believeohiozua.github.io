@@ -17,7 +17,7 @@ function MovieCard({ key, index, title, description, likes, fee, poster, removeL
                 />
             </div>
             <div className={parseInt(index) % 2 === 0 ? "col-md-6 my-auto" : "col-md-6 order-md-12 my-auto"}>
-                <h1 className="">{title} {checkLike}</h1>
+                <h1 className="">{title}</h1>
                 <span className="text-success fw-bolder"> ₦{fee}</span>
                 <p className="">{description}</p>
                 <div className={parseInt(index) % 2 === 0 ? "col-md-6 mb-2" : "col-md-6 mb-2"}>
