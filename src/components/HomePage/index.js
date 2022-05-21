@@ -2,7 +2,7 @@ import React from 'react';
 import { movies } from './movieList';
 import MovieCard from './MovieCard';
 // import Nav from '../base/Nav';
-import Foot from '../base/Foot';
+// import Foot from '../base/Foot';
 import Hero from './Hero'
 
 function HomePage() {
@@ -50,7 +50,7 @@ function HomePage() {
                     ))}
                 </div>
             </section>
-            <Foot />
+            {/* <Foot /> */}
         </>
     )
 }
