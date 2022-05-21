@@ -20,7 +20,7 @@ function Hero() {
                                 <input type="email" className="form-control py-3" placeholder="Email Address" />
                             </div>
                             <div className="mt-3">
-                                <button className="btn btn-danger btn-lg">Get Started</button>
+                                <button className="btn btn-success btn-lg">Get Started</button>
                             </div>
                         </form>
                     </div>
