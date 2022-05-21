@@ -7,7 +7,7 @@ function Hero() {
                 <div className="col-md-6 col-lg-5 mx-auto text-center">
                     <div className="">
                         <h1 className="display-5 text-center fw-bolder">
-                            Unlimited movies, TV shows, and more.
+                            <span className="text-success">Nolly-Flix</span> movies, TV shows, and more.
                         </h1>
                         <p className="fs-2">
                             Watch anywhere. Cancel anytime.
