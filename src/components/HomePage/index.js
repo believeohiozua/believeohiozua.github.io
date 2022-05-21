@@ -17,11 +17,13 @@ function HomePage() {
             localStorage.setItem(`likes_of_${id}`, 1);
             localStorage.setItem(`you_liked_${id}`, 1);
         }
+        window.location.reload()
     }
     const removeLike = (id) => {
         let likes = parseInt(localStorage.getItem(`likes_of_${id}`));
         localStorage.setItem(`likes_of_${id}`, likes - 1);
         localStorage.setItem(`you_liked_${id}`, 0);
+        window.location.reload()
     }
 
 
