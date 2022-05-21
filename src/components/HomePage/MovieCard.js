@@ -3,9 +3,16 @@ import React from 'react';
 function MovieCard({ key, index, title, description, likes, fee, poster, removeLike,
     addLike, checkLike }) {
 
+    const [increaseFee, setIncreaseFee] = React.useState(0);
     React.useEffect(() => {
         localStorage.getItem(`likes_of_${index}`)
         localStorage.getItem(`you_liked_${index}`)
+        if (parseInt(likes) > 3) {
+            setIncreaseFee(
+                parseInt(fee) * parseInt(likes)
+            )
+        }
+
     }, [checkLike])
     return (
         <section className="row my-2 text-white" key={index}>
@@ -18,7 +25,7 @@ function MovieCard({ key, index, title, description, likes, fee, poster, removeL
             </div>
             <div className={parseInt(index) % 2 === 0 ? "col-md-6 my-auto" : "col-md-6 order-md-12 my-auto"}>
                 <h1 className="">{title}</h1>
-                <span className="text-success fw-bolder"> ₦{fee}</span>
+                <span className="text-success fw-bolder"> ₦{parseInt(likes) > 3 ? `${increaseFee}` : `${fee}`}</span>
                 <p className="">{description}</p>
                 <div className={parseInt(index) % 2 === 0 ? "col-md-6 mb-2" : "col-md-6 mb-2"}>
                     {checkLike === 0 || checkLike === NaN ?
