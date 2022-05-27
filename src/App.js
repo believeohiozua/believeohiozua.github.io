@@ -30,18 +30,14 @@ function App() {
   };
 
   return (
-    <LoadingOverlay
-      active={loader}
-      spinner
-      text="Loading your content please wait..."
-    >
+    <>
       <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
-    </LoadingOverlay>
+    </>
   )
 }
 

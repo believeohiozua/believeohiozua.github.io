@@ -9,6 +9,7 @@
     "aos": "^2.3.4",
     "formik": "^2.2.9",
     "mdb-react-ui-kit": "^3.0.0",
+    "netlify-cli": "^10.3.3",
     "postcss-custom-properties": "^12.1.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
